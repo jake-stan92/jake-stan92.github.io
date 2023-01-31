@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection) {
         playerScoreCount += 1;
         return 'Player Wins!'
     } else if (player === pc) {
-        return 'It"s a Tie!'
+        return "It's a Tie!"
     }
 };
 
