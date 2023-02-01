@@ -1,107 +1,72 @@
-// initialise score counters
-let playerScoreCount = 0
-let pcScoreCount = 0
+// parent container for grid
+const container = document.querySelector('#grid');
 
+// prompt Button ID
+let promptButton = document.getElementById('promptButton');
 
-// randomly generate computer choice
-function getComputerChoice() {
-    let num = Math.floor(Math.random() * 3)
-    if (num === 0) {
-        choice = 'Rock'
-    } else if (num === 1) {
-        choice = 'Paper'
-    } else {
-        choice = 'Scissors'
-    }
-    return choice
+// reset Button ID
+let resetButton = document.getElementById('resetButton');
+
+// grid Size ID
+const gridSize = document.querySelector('.grid');
+
+// Default size
+const defaultSize = 10;
+
+// create default grid
+function createGrid(num) {    
+
+    // create grid of squares
+    size = Math.pow(num, 2);
+    for (i = 0; i < size; i++) {
+        let square = document.createElement('div');
+        square.classList.add('square');
+        container.appendChild(square);        
+    };
+
+    // set gridsize 
+    gridSize.setAttribute('style', `grid-template-columns: repeat(${num}, 1fr`);  
+
+    //change color of background once entered
+    const squares = document.querySelectorAll('.square');
+    for (let i = 0; i < squares.length; i++) {
+        squares[i].addEventListener('mouseenter', function() {        
+            squares[i].setAttribute('style', `background-color: ${randomColor()};`)
+        });
+    };
 };
 
-// decide winner of round 
-function playRound(playerSelection, computerSelection) {
-    let player = playerSelection.toUpperCase();
-    let pc = computerSelection.toUpperCase(); 
-    console.log('func player choice: ' + player);
-    console.log('func pc choice: ' + pc);   
+createGrid(defaultSize);  
 
-    if (player === 'ROCK' && pc === 'SCISSORS') {
-        playerScoreCount += 1;
-        return 'Player Wins!'
-    } else if (player === 'ROCK' && pc === 'PAPER') {
-        pcScoreCount += 1;
-        return 'PC Wins!'
-    } else if (player === 'PAPER' && pc === 'SCISSORS') {
-        pcScoreCount += 1;
-        return 'PC wins!'
-    } else if (player === 'PAPER' && pc === 'ROCK'){
-        playerScoreCount += 1;
-        return 'Player Wins!'
-    } else if (player === 'SCISSORS' && pc === 'ROCK') {
-        pcScoreCount += 1;
-        return 'PC Wins!'
-    } else if (player === 'SCISSORS' && pc === 'PAPER') {
-        playerScoreCount += 1;
-        return 'Player Wins!'
-    } else if (player === pc) {
-        return "It's a Tie!"
-    }
+// add listener and function to promptButton
+promptButton.addEventListener('click', function() {
+    // remove current children to replace with new
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }; 
+    let number = prompt('Choose number');  
+   
+    if (number < 1 || number > 100) {
+        alert('Please choose a number between 1-100\nSwitching to default 10x10')
+        number = defaultSize;
+    };
+      
+    createGrid(number);
+});
+
+//add listener for reset button function
+resetButton.addEventListener('click', function() {
+    const squares = document.querySelectorAll('.square');
+    for (let i = 0; i < squares.length; i++) {        
+        squares[i].setAttribute('style', 'background-color: white;')
+    };    
+});
+
+function randomColor() {
+    let color1 = Math.floor(Math.random() * 256).toString();
+    let color2 = Math.floor(Math.random() * 256).toString();
+    let color3 = Math.floor(Math.random() * 256).toString();
+    let randColor = `rgb(${color1}, ${color2}, ${color3})`
+    console.log(randColor);
+    return randColor;    
 };
-
-
-// define button functions (they pass their value (R,P,S) to the playGame func)
-const rockButton = document.querySelector('#rockButton');
-rockButton.addEventListener('click', function() {    
-    playGame('rock');
-});
-
-const paperButton = document.querySelector('#paperButton');
-paperButton.addEventListener('click', function() {     
-    playGame('paper');
-});
-
-const scissorsButton = document.querySelector('#scissorsButton');
-scissorsButton.addEventListener('click', function() {    
-    playGame('scissors');
-});
-
-
-// configure play again button
-const playAgainButton = document.querySelector('#playAgainButton');
-playAgainButton.disabled = true;
-
-playAgainButton.addEventListener('click', function() {
-    playerScoreCount = 0;
-    pcScoreCount = 0;
-    rockButton.disabled = false;
-    paperButton.disabled = false;
-    scissorsButton.disabled = false;
-    playAgainButton.disabled = true;
-    document.getElementById('playerScoreCount').textContent = playerScoreCount;
-    document.getElementById('pcScoreCount').textContent = pcScoreCount;
-});
-
-
-// Plays a game to 5 updating score and declaring winner
-function playGame(pick) {
-    let pcChoice = getComputerChoice();
-    let humanChoice = pick;
-    // display JS details in HTML
-    document.getElementById('outcomeText').textContent = playRound(humanChoice, pcChoice);    
-    document.getElementById('playerScoreCount').innerHTML = playerScoreCount;
-    document.getElementById('pcScoreCount').innerHTML = pcScoreCount;
-
-    // decide winner
-    if (playerScoreCount === 5) {
-        rockButton.disabled = true;
-        paperButton.disabled = true;
-        scissorsButton.disabled = true;
-        playAgainButton.disabled = false;
-        return alert('Player is first to 5.. Player Wins!');
-    } else if (pcScoreCount === 5) {
-        rockButton.disabled = true;
-        paperButton.disabled = true;
-        scissorsButton.disabled = true;
-        playAgainButton.disabled = false;
-        return alert('PC is first to 5... PC Wins!');
-    }
-};
-

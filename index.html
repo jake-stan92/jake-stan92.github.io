@@ -4,37 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>    
+    <title>Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>    
-    <div class="buttons">
-        <div>
-            <button id="rockButton">Rock</button>
-        </div>
-        <div >
-            <button id="paperButton">Paper</button>
-        </div>
-        <div >
-            <button id="scissorsButton">Scissors</button>
-        </div>
+<body>
+    <div id="controls">
+        <button id="promptButton">Choose Size</button>
+        <button id="resetButton">Reset</button>
     </div>
-    <div class="scores">
-        <div class="scoreBox">
-            <p>Player Score Count</p>
-            <p id="playerScoreCount"></p>
-        </div>
-        <div class="scoreBox">
-            <p>PC Score Count</p>
-            <p id="pcScoreCount"></p>
-        </div>
-    </div>
-    <div class="outcome">
-        <h2 id="outcomeText"></h2>
-    </div> 
-    <div class="playAgain">
-        <button id="playAgainButton">Play Again?</button>
-    </div>   
+    <!--Container for JS created grid-->
+    <div class="grid" id="grid"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
