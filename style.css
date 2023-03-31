@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+html {
+    display: flex;
+    justify-content: center;    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;  
+    font-family: 'Roboto', sans-serif;
+}
+
+.appContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+.headerContent,
+.footerContent {
+    flex-grow: 1;
+}
+
+.headerContent > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
+
+.headerContent {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.headerContent p {
+    margin: 0;
+}
+
+.footerContent {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footerContent p {
+    margin: 0;
+}
+
+.imgContainer {
+    flex-grow: 2;
+    padding: 1rem;
+}
+
+.imgContainer > img {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    border-radius: 1rem;
+}
+
+.otherStats {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.otherStats > div {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.otherStats img {
+    height: 75px;
+}
+
+.searchBox {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+}
+
+#citySearch {
+    flex-grow: 2;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+#citySearch:focus {
+    outline: 2px solid rgb(85, 255, 0);
+}
+
+#getWeatherBtn {
+    flex-grow: 1;
+    border-radius: 1rem;
+    border: none;
+}
+
+#getWeatherBtn:hover {
+    background-color: rgb(85, 255, 0);
+}
