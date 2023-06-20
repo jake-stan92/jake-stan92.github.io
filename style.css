@@ -1,41 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@300&display=swap');
 
+:root {
+    --headerFont: 'IBM Plex Sans Condensed', sans-serif;
+    --textFont: 'IBM Plex Sans', sans-serif;
 
-.buttons {
+    /* colours */
+
+    --buttonColor: orange;
+    --buttonHover: hsl(61, 89%, 72%);
+    --primaryGreen: hsl(159, 82%, 19%);
+    --accentGreen: hsl(160, 20%, 85%);
+    --backgroundColor: hsl(0, 0%, 100%);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--headerFont);
+}
+
+h4,
+h5,
+button,
+p {
+    font-family: var(--textFont);
+}
+
+/* font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'IBM Plex Sans Condensed', sans-serif; */
+
+body {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    background-color: var(--backgroundColor);
+    margin: 0;
+}
+
+body img {
+    width: 8rem;
 }
 
 button {
-    min-width: 75px;
-    padding: 5px;
-}
-
-.scores {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    text-align: center;
-    min-height: 100px;
-}
-
-.outcome {
+    background-color: var(--buttonColor);
+    border: 0;
+    padding: 1rem 4rem;
+    border-radius: 1rem;
+    font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80px;
+    gap: .75rem;
 }
 
-.scoreBox p {
-    margin-bottom: 0;    
+.section-1 > button:hover {
+    background-color: var(--primaryGreen);
+    color: var(--backgroundColor);
 }
 
-.scoreBox {
-    min-height: 50px;
+.section-4 > button:hover {
+    background-color: var(--backgroundColor);
+    color: var(--primaryGreen);
 }
 
-.playAgain {
+button > img {
+    width: 20px;
+}
+
+.section-4,
+.section-2 {
+    
+    background-color: var(--primaryGreen);
+    color: white;
+    padding: 2rem;
+}
+
+.section-4 {
+    line-height: 2;
+}
+
+.section-4 h2 {
+    margin-bottom: 0;
+}
+
+.section-1,
+.section-2,
+.section-3,
+.section-4,
+.section-5 {
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-container {
+    width: 100%;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: auto auto;
+    place-content: center;
+}
+
+.card {
+    background-color: var(--accentGreen);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 300px;
+}
+
+@media (width < 376px) {
+
+    .card-container {
+        width: 100%;
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: auto;
+    } 
+}
+
+@media (width > 1199px) {
+
+    .section-3 {
+        gap: 1rem;
+    }
+
+    .card-container {
+        width: 100%;
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: auto auto auto auto;
+    } 
+
+    .section-2,
+    .section-4 {
+        padding: 1rem 25rem;
+    }
 }
