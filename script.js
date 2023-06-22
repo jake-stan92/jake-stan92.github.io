@@ -1,11 +1,31 @@
-// document.cookie = "SameSite=None; Secure"
-
 const slidesContainer = document.querySelector('.slidesContainer');
-
 const prevBtn = document.querySelector('#slidePrev');
 const nextBtn = document.querySelector('#slideNext');
-
 const slide = document.querySelector('.slide');
+
+const calendlyBooking1 = document.querySelector('.calendly-booking-1');
+const contactBtn1 = document.querySelector('#contactBtn-1');
+const closeCalendlyBtn1 = document.querySelector('#calendly-closeBtn-1');
+
+const calendlyBooking2 = document.querySelector('.calendly-booking-2');
+const contactBtn2 = document.querySelector('#contactBtn-2');
+const closeCalendlyBtn2 = document.querySelector('#calendly-closeBtn-2');
+
+contactBtn1.addEventListener('click', () => {
+    calendlyBooking1.classList.add('active');
+})
+
+closeCalendlyBtn1.addEventListener('click', () => {
+    calendlyBooking1.classList.remove('active');
+})
+
+contactBtn2.addEventListener('click', () => {
+    calendlyBooking2.classList.add('active');
+})
+
+closeCalendlyBtn2.addEventListener('click', () => {
+    calendlyBooking2.classList.remove('active');
+})
 
 nextBtn.addEventListener('click', () => {
     const slideWidth = slide.clientWidth;
@@ -17,43 +37,3 @@ prevBtn.addEventListener('click', () => {
     slidesContainer.scrollLeft -= slideWidth;
 });
 
-
-
-// for (let i=0; i < reviews.length; i++) {
-//     // console.log(reviews[i].stars)
-
-//     //create slide (li)
-//     let newSlide = document.createElement('li');
-//     let newSlideContent = document.createElement('div');
-//     newSlideContent.setAttribute('class', 'newSlideContent');
-//     newSlide.setAttribute('class', 'slide');
-//     newSlide.setAttribute('id', `slide${i+1}`);
-
-//     //add content to slide
-//     //name
-//     // let reviewerName = document.createElement('h1');
-//     // reviewerName.textContent = reviews[i].name;
-//     // newSlide.appendChild(reviewerName);
-
-//     //stars
-//     // let reviewStars = document.createElement('div');
-//     // reviewStars.setAttribute('class', 'reviewStars');
-   
-
-//     // for (let f=0; f<reviews[i].stars; f++) {
-//     //     let starImg = document.createElement('img');
-//     //     starImg.setAttribute('src', 'star.svg');
-//     //     reviewStars.appendChild(starImg)
-//     // }
-   
-//     newSlide.appendChild(reviewStars);
-
-//     //comments
-//     let reviewComments = document.createElement('p');
-//     reviewComments.textContent = reviews[i].comments;
-//     newSlide.appendChild(reviewComments);    
-
-//     //add slide to container (ul)
-//     newSlide.appendChild(newSlideContent);
-//     slidesContainer.appendChild(newSlide);
-// }
