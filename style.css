@@ -147,6 +147,11 @@ body img {
     width: 300px;
 }
 
+.card h4, 
+.card p {
+    margin: .3rem;
+}
+
 /* carousel testing */
 
 .container {
