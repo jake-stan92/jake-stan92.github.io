@@ -11,6 +11,7 @@
     --primaryGreen: hsl(159, 82%, 19%);
     --accentGreen: hsl(160, 20%, 85%);
     --backgroundColor: hsl(0, 0%, 100%);
+    --slideColor: hsl(160, 20%, 85%);
 }
 
 h1,
@@ -41,7 +42,7 @@ body {
 
 body img {
     width: 8rem;
-    height: auto;
+    height: 100%;
 }
 
 .contact-button {
@@ -72,6 +73,7 @@ body img {
 
 .contact-button img {
     width: 20px;
+    height: auto;
 }
 
 #book-img-card1 {
@@ -137,7 +139,9 @@ body img {
 }
 
 .card {
-    background-color: var(--accentGreen);
+    display: grid;
+    place-items: center;
+    background-color: var(--slideColor);
     border-radius: 1rem;
     padding: .5rem;
     width: 300px;
@@ -191,7 +195,11 @@ body img {
 
 .slide {
     /* border: 2px solid; */
+    display: grid;
+    place-items: center;
     box-sizing: border-box;
+    background-color: var(--slideColor);
+    border-radius: .5rem;
     padding: 1rem;
     /* width: 100%; */
     min-height: 300px;
@@ -220,6 +228,7 @@ body img {
 
 .slide img {
     width: 7rem;
+    grid-row: 1 / 4;
 }
 
 .slide h4 {
@@ -228,6 +237,11 @@ body img {
 
 .slide p {
     font-size: .6rem;
+}
+
+.slide h4,
+.slide p {
+    margin: .2rem;
 }
 
 .slideArrow:hover,
@@ -275,6 +289,19 @@ body img {
     display: block;
 }
 
+/* youtube videos */
+
+.youtube-video-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+
+.youtube-video {
+    width: 100%;
+}
+
 
 
 @media (width < 376px) {
@@ -284,7 +311,7 @@ body img {
         display: grid;
         gap: .75rem;
         grid-template-columns: auto;
-    }    
+    }   
 }
 
 @media (width < 680px) {
@@ -295,6 +322,14 @@ body img {
     
     .container {
         display: flex;
+    }
+
+    .youtube-video-container {        
+        grid-template-columns: auto;        
+    }
+
+    .youtube-video {
+        width: 100%;
     }
 }
 
@@ -313,10 +348,18 @@ body img {
 
     .section-2,
     .section-4 {
-        padding: 1rem 25rem;
+        padding: 2rem 25rem;
     }
 
     .section-1 {
         height: 700px;
+    }
+
+    .section-5 {
+        padding: 2rem 15rem;
+    }
+
+    .section-5 h2 {
+        margin-bottom: 3rem;
     }
 }
