@@ -1,41 +1,61 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
+.container {
+    background-color: aliceblue;
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    border-radius: 15px;
+    gap: 1.5rem;
+}
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 15px;
+.pokemon-card {
+    background-color: antiquewhite;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 15px;
+    width: 250px;
+}
+
+.pokemon-image {
+    width: 150px;
+    height: auto;
 }
 
 button {
-    min-width: 75px;
-    padding: 5px;
+    border-radius: 50%;
+    transition: .3s ease-in-out;
+    width: 50px;
+    height: 50px;
+    background-image: url('./images/pokeball.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 0;
+    margin-top: 1rem;
 }
 
-.scores {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+button:hover {
+    transform: rotate(180deg);
+}
+
+.outcome,
+.container-header,
+.instructions {
+    grid-column-start: 1;
+    grid-column-end: 3;
     text-align: center;
-    min-height: 100px;
 }
 
-.outcome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80px;
+.instructions {
+    text-align: left;
 }
 
-.scoreBox p {
-    margin-bottom: 0;    
-}
-
-.scoreBox {
-    min-height: 50px;
-}
-
-.playAgain {
-    display: flex;
-    justify-content: center;
-}
