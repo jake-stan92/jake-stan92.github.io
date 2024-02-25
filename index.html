@@ -2,39 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>    
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>    
-    <div class="buttons">
-        <div>
-            <button id="rockButton">Rock</button>
+<body>
+    <div class="container">
+        <div class="container-header">
+            <p id="score">Score: <span id="score-to-update"></span></p>
         </div>
-        <div >
-            <button id="paperButton">Paper</button>
+        <div id="pokemon-1" class="pokemon-card">
+            <img id="pokemon1-img" class="pokemon-image">
+            <div class="pokemon-name">
+                <p id="pokemon1-name"></p>
+            </div>
+            <button class="choose-pokemon-button" id="pokemon1-button"></button>
         </div>
-        <div >
-            <button id="scissorsButton">Scissors</button>
+        <div id="pokemon-2" class="pokemon-card">
+            <img id="pokemon2-img" class="pokemon-image">
+            <div class="pokemon-name">
+                <p id="pokemon2-name"></p>
+            </div>
+            <button class="choose-pokemon-button" id="pokemon2-button"></button>
+        </div>
+        <div class="outcome">
+            <p id="outcome-text"></p>
+        </div>
+        <div class="instructions">
+            <h4>How to play:</h4>
+            <p>- Test your pokemon knowledge!</p>
+            <p>- Based on type (water, fire, grasss etc), choose the pokemon that will win!</p>
+            <p>- To choose your pokemon, click the pokeball!</p>
         </div>
     </div>
-    <div class="scores">
-        <div class="scoreBox">
-            <p>Player Score Count</p>
-            <p id="playerScoreCount"></p>
-        </div>
-        <div class="scoreBox">
-            <p>PC Score Count</p>
-            <p id="pcScoreCount"></p>
-        </div>
-    </div>
-    <div class="outcome">
-        <h2 id="outcomeText"></h2>
-    </div> 
-    <div class="playAgain">
-        <button id="playAgainButton">Play Again?</button>
-    </div>   
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
