@@ -119,7 +119,6 @@ pokemon1Btn.addEventListener('click', (e) => {
 
 pokemon2Btn.addEventListener('click', (e) => {
     const type1 = e.target.value
-    console.log(type1)
     const type2 = pokemon1Btn.value
     playRound(type1, type2)
 })
